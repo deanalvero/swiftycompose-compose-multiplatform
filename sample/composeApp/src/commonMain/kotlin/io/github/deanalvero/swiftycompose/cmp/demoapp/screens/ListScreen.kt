@@ -24,7 +24,7 @@ fun ComponentListScreen(
     onComponentSelected: (ComponentData) -> Unit
 ) {
     Scaffold(
-        topBar = { TopAppBar(title = { Text("SwiftyCompose CMP Demo") }) }
+        topBar = { TopAppBar(title = { Text("SwiftyCompose Compose Multiplatform") }) }
     ) { padding ->
         LazyColumn(
             modifier = Modifier.fillMaxSize().padding(padding)
