@@ -5,6 +5,7 @@ import androidx.compose.ui.unit.dp
 import io.github.deanalvero.swiftycompose.cmp.background
 import io.github.deanalvero.swiftycompose.cmp.components.Button
 import io.github.deanalvero.swiftycompose.cmp.components.HStack
+import io.github.deanalvero.swiftycompose.cmp.components.Slider
 import io.github.deanalvero.swiftycompose.cmp.components.Spacer
 import io.github.deanalvero.swiftycompose.cmp.components.Text
 import io.github.deanalvero.swiftycompose.cmp.components.Toggle
@@ -101,6 +102,23 @@ object ComponentRepository {
                     "Submit",
                     action = {}
                 )
+            }
+        ),
+        ComponentData(
+            name = "Slider",
+            codeSnippet = """
+                val sliderValue = stateBinding(0.5f)
+                Slider(
+                    value = sliderValue,
+                    bounds = 0f..2f
+                )()
+            """.trimIndent(),
+            content = {
+                val sliderValue = stateBinding(0.5f)
+                Slider(
+                    value = sliderValue,
+                    bounds = 0f..2f
+                )()
             }
         )
     )
