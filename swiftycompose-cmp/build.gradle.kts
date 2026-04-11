@@ -124,8 +124,6 @@ kotlin {
 }
 
 mavenPublishing {
-    coordinates("io.github.deanalvero", "swiftycompose-cmp", "0.1.0")
-
     pom {
         name.set("SwiftyCompose Compose Multiplatform")
         description.set("Build Composable components on iOS, Android, Desktop, and Web using SwiftUI-like syntax!")
@@ -155,5 +153,12 @@ mavenPublishing {
 }
 
 signing {
-    useGpgCmd()
+    val signingKey = providers.environmentVariable("ORG_GRADLE_PROJECT_signingInMemoryKey")
+    val signingPassword = providers.environmentVariable("ORG_GRADLE_PROJECT_signingInMemoryKeyPassword")
+
+    if (signingKey.isPresent && signingPassword.isPresent) {
+        useInMemoryPgpKeys(signingKey.get(), signingPassword.get())
+    } else {
+        useGpgCmd()
+    }
 }
