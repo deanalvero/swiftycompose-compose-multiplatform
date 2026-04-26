@@ -16,7 +16,7 @@ import io.github.deanalvero.swiftycompose.cmp.frame
 import io.github.deanalvero.swiftycompose.cmp.padding
 
 object ComponentRepository {
-    val all = listOf(
+    private val _samples = listOf(
         ComponentData(
             name = "VStack",
             codeSnippet = """
@@ -123,5 +123,7 @@ object ComponentRepository {
         )
     )
 
-    fun getByName(name: String): ComponentData? = all.find { it.name == name }
+    fun samples(): List<ComponentData> = _samples
+
+    fun getByName(name: String): ComponentData? = _samples.find { it.name == name }
 }

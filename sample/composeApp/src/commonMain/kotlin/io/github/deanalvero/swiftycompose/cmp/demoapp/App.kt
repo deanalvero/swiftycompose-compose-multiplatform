@@ -26,7 +26,6 @@ fun App() {
 
             composable<ListRoute> {
                 ComponentListScreen(
-                    components = ComponentRepository.all,
                     onComponentSelected = { component ->
                         navController.navigate(DetailRoute(componentName = component.name))
                     }
